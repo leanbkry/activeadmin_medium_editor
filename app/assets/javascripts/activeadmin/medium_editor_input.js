@@ -3,8 +3,11 @@ function initMediumEditors() {
     if(!$(this).hasClass('medium-editor--active')) {
       var options = {};
       options = $.extend({}, options, $(this).data('options'));
-      new MediumEditor($(this), options);
+      var editor = new MediumEditor($(this), options);
       $(this).addClass('medium-editor--active');
+      $('.editable').mediumInsert({
+        editor: editor
+      });
     }
   });
 }
